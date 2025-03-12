@@ -7,6 +7,13 @@
     <!-- Daisyui and Tailwind -->
     <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <style>
+        .active{
+            background: red;
+            color: white;
+        }
+    </style>
 </head>
 <body>
   <header class="px-3">
@@ -26,13 +33,16 @@
   <!-- Category Container -->
    <nav id="category-container" class="container mx-auto flex gap-5 justify-center py-5">
     <div>
-        <button class="btn btn-sm hover:bg-red-500 hover:text-white">All</button>
+        <button id="btn-all" onclick="loadVideos()" class="btn btn-sm">All</button>
     </div>
    </nav>
     
 <!-- video container -->
  <section class="container mx-auto grid grid-cols-4 gap-4" id="video-container">
-  
+    <div class="col-span-full text-center py-20">
+        <img class="w-28 mx-auto" src="assets/Icon.png" alt="">
+        <h2 class="text-2xl font-bold">Oops!! Sorry, There is no content here</h2>
+    </div>
  </section>
 
 
