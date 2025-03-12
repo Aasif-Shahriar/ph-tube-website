@@ -4,8 +4,36 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PH Tube | Asif</title>
+    <!-- Daisyui and Tailwind -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
 </head>
 <body>
+  <header class="lg:px-10">
+    <nav class="container mx-auto flex justify-between border-b border-gray-300 py-5">
+        <div class="logo">
+            <img src="assets/Logo.png" alt="">
+        </div>
+        <div class="sort">
+            <button class="btn bg-gray-300">Sort By View</button>
+        </div>
+        <div class="blog">
+            <button class="btn bg-red-500 text-white">Blog</button>
+        </div>
+    </nav>
+  </header>
+
+  <!-- Category Container -->
+   <nav id="category-container" class="container mx-auto flex gap-5 justify-center py-5">
+        <button class="btn btn-sm hover:bg-red-500 hover:text-white">All</button>
+        <button class="btn btn-sm hover:bg-red-500 hover:text-white">Music</button>
+        <button class="btn btn-sm hover:bg-red-500 hover:text-white">Comedy</button>
+        <button class="btn btn-sm hover:bg-red-500 hover:text-white">Drawing</button>
+   </nav>
     
+
+
+
+   <script src="scripted/index.js"></script>
 </body>
 </html>
