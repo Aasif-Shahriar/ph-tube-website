@@ -1,19 +1,34 @@
 function loadCategories(){
-    //Data fetch korlam
+    //fetching data from the api
     fetch("https://openapi.programming-hero.com/api/phero-tube/categories")
         .then((res) => res.json())
-        .then((data) => displayCategory(data.categories))//ei function e data gulo ke pathiye dilam
+        .then((data) => displayCategory(data.categories))//Sending data to this function
 }
 
-//and ei function e data receive korlam and baki kaj ekhanei korbo
+
+// {
+//     "category_id": "1001",
+//     "category": "Music"
+// }
+
+//Receiving data to this function
 function displayCategory(categories){
-    //get the container jekhane data gulo ke rakhbo
+    // getting the category container
+    const categoryContainer = document.getElementById("category-container");
 
-    //loop chalabo array of object er upor[categories]
+    //looping through the categories
+    for(let cat of categories){
+        //creating a div
+       const div = document.createElement("div");
+       //dynamically adding the category to the div content
+       div.innerHTML = `
+         <button class="btn btn-sm hover:bg-red-500 hover:text-white">${cat.category}</button>
+       `;
+       //appending the div to the category container
+       categoryContainer.appendChild(div);
+    };
 
-    //new ekta element create korbo
-
-    //new element ke tar parent er moddhe append korbo
+    
 }
 
 
