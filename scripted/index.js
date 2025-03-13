@@ -34,6 +34,33 @@ const loadCategoryVideos = (id) => {
     })
 }
 
+const loadVideoDetails = (videoID) => {
+    console.log(videoID)
+    const url = `https://openapi.programming-hero.com/api/phero-tube/video/${videoID}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayDetails(data.video))
+}
+
+const displayDetails = (video) => {
+    console.log(video)
+    document.getElementById('video-details').showModal();
+    const detailsContainer = document.getElementById('details-container');
+    detailsContainer.innerHTML = `
+       <div class="card bg-base-100 image-full shadow-sm">
+  <figure>
+    <img
+      src="${video.thumbnail}"
+      alt="Shoes" />
+  </figure>
+  <div class="card-body">
+    <h2 class="card-title">${video.title}</h2>
+    <p>${video.description}</p>
+  </div>
+</div>
+    `;
+}
+
 const displayVideo = (videos) => {
    const videoContainer = document.getElementById('video-container');
 
@@ -69,11 +96,14 @@ const displayVideo = (videos) => {
             <!-- intro -->
             <div>
                 <h2 class="text-lg font-bold">${video.title}</h2>
-                <p class="text-sm text-gray-500 flex gap-1">${video.authors[0].profile_name} <img class="h-5 w-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt=""></p>
+                <p class="text-sm text-gray-500 flex gap-1">${video.authors[0].profile_name}
+                    ${video.authors[0].verified == true ? `<img class="h-5 w-5" src="https://img.icons8.com/?size=48&id=98A4yZTt9abw&format=png" alt="">` : ``} 
+                </p>
 
                 <p class="text-sm text-gray-500">${video.others.views} Views</p>
             </div>
         </div>
+        <button onclick="loadVideoDetails('${video.video_id}')" class="btn btn-block">Show Details</button>
     </div>
     `;
     videoContainer.appendChild(videoCard)
